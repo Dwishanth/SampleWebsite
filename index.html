@@ -1,0 +1,1923 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Dwishanth Bolla | AI & Systems Engineer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="Portfolio of Dwishanth Bolla — AI & Systems Engineer, simulation builder, and problem-solver."
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    :root {
+      --bg: #050816;
+      --bg-elevated: rgba(15, 23, 42, 0.9);
+      --bg-glass: rgba(15, 23, 42, 0.7);
+      --accent: #4ade80;
+      --accent-soft: rgba(74, 222, 128, 0.1);
+      --accent-2: #38bdf8;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --border-subtle: rgba(148, 163, 184, 0.3);
+      --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.9);
+      --radius-xl: 24px;
+      --radius-full: 999px;
+      --transition-fast: 170ms ease-out;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top left, #1f2937 0, transparent 55%),
+        radial-gradient(circle at bottom right, #0f172a 0, transparent 55%),
+        var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .shell {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 20px 16px 80px;
+    }
+
+    /* ====== HEADER & NAV ====== */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(24px);
+      background: linear-gradient(
+        to bottom,
+        rgba(15, 23, 42, 0.96),
+        rgba(15, 23, 42, 0.7),
+        transparent
+      );
+      border-bottom: 1px solid rgba(148, 163, 184, 0.22);
+    }
+
+    .nav {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 14px 16px 10px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-badge {
+      width: 36px;
+      height: 36px;
+      border-radius: var(--radius-full);
+      background: radial-gradient(circle at 30% 30%, #4ade80, #22c55e 40%, #0f172a 85%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 16px;
+      letter-spacing: 0.04em;
+      color: #e5f5ff;
+      box-shadow: 0 0 0 2px rgba(34, 197, 94, 0.6),
+        0 14px 30px rgba(34, 197, 94, 0.35);
+    }
+
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+    }
+
+    .logo-name {
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    .logo-tagline {
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .nav-links {
+      margin-left: auto;
+      display: flex;
+      gap: 14px;
+      align-items: center;
+      font-size: 13px;
+    }
+
+    .nav-links a {
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      color: var(--muted);
+      transition: background var(--transition-fast),
+        color var(--transition-fast),
+        border-color var(--transition-fast),
+        transform var(--transition-fast);
+    }
+
+    .nav-links a:hover {
+      background: rgba(15, 23, 42, 0.95);
+      border-color: var(--border-subtle);
+      color: var(--text);
+      transform: translateY(-1px);
+    }
+
+    .nav-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: linear-gradient(135deg, #22c55e, #4ade80, #38bdf8);
+      color: #0b1120 !important;
+      padding-inline: 14px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 600;
+      box-shadow: 0 14px 40px rgba(45, 212, 191, 0.5);
+      border: 0;
+    }
+
+    .nav-primary span.icon {
+      font-size: 16px;
+    }
+
+    .nav-primary:hover {
+      transform: translateY(-1px) scale(1.01);
+      box-shadow: 0 18px 50px rgba(45, 212, 191, 0.65);
+    }
+
+    .nav-social {
+      display: flex;
+      gap: 8px;
+      margin-left: 10px;
+    }
+
+    .nav-social a {
+      width: 28px;
+      height: 28px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+      color: var(--muted);
+    }
+
+    .nav-social a:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    @media (max-width: 720px) {
+      .nav-links {
+        display: none;
+      }
+    }
+
+    /* ====== HERO ====== */
+
+    main {
+      margin-top: 18px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2.4fr);
+      gap: 32px;
+      align-items: center;
+      margin-top: 24px;
+    }
+
+    .hero-left {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .hero-chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .chip {
+      padding: 4px 11px;
+      border-radius: 999px;
+      font-size: 11px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      color: var(--muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      backdrop-filter: blur(14px);
+      background: rgba(15, 23, 42, 0.7);
+    }
+
+    .chip span.dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 30%, #4ade80, #22c55e);
+      box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.25);
+    }
+
+    .chip strong {
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    .hero-title {
+      font-size: clamp(34px, 4vw, 42px);
+      line-height: 1.1;
+      letter-spacing: 0.01em;
+    }
+
+    .hero-title span.highlight {
+      background: linear-gradient(120deg, #4ade80, #22c55e, #38bdf8);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-subtitle {
+      font-size: 14px;
+      color: var(--muted);
+      max-width: 520px;
+    }
+
+    .hero-subtitle strong {
+      color: #e5e7eb;
+      font-weight: 500;
+    }
+
+    .hero-cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 4px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 16px;
+      border-radius: 999px;
+      font-size: 13px;
+      border: 1px solid transparent;
+      cursor: pointer;
+      background: none;
+      color: inherit;
+      transition: background var(--transition-fast),
+        border-color var(--transition-fast),
+        transform var(--transition-fast),
+        box-shadow var(--transition-fast);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #22c55e, #4ade80, #38bdf8);
+      color: #020617;
+      font-weight: 600;
+      box-shadow: 0 20px 50px rgba(34, 197, 94, 0.52);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px) scale(1.02);
+      box-shadow: 0 24px 60px rgba(34, 197, 94, 0.7);
+    }
+
+    .btn-ghost {
+      border-color: var(--border-subtle);
+      color: var(--muted);
+      background: rgba(15, 23, 42, 0.85);
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-1px);
+    }
+
+    .btn span.icon {
+      font-size: 16px;
+    }
+
+    .hero-meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      margin-top: 14px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .hero-meta-row span.label {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    .hero-right {
+      position: relative;
+    }
+
+    .hero-card {
+      position: relative;
+      border-radius: var(--radius-xl);
+      padding: 18px 16px 16px;
+      background: radial-gradient(circle at top left, rgba(74, 222, 128, 0.05), transparent 50%),
+        radial-gradient(circle at bottom right, rgba(56, 189, 248, 0.08), transparent 55%),
+        var(--bg-elevated);
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      box-shadow: var(--shadow-soft);
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background:
+        radial-gradient(circle at 20% 0, rgba(74, 222, 128, 0.08), transparent 55%),
+        radial-gradient(circle at 80% 100%, rgba(56, 189, 248, 0.14), transparent 60%);
+      opacity: 0.9;
+      mix-blend-mode: screen;
+      pointer-events: none;
+    }
+
+    .hero-card-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+
+    .user-meta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 30%, #4ade80, #22c55e 40%, #0f172a 90%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      font-weight: 700;
+      color: #e5f5ff;
+      box-shadow: 0 10px 30px rgba(34, 197, 94, 0.6);
+    }
+
+    .user-meta-text {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .user-meta-text .name {
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .user-meta-text .role {
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .status-pill {
+      font-size: 11px;
+      padding: 5px 9px;
+      border-radius: 999px;
+      border: 1px solid rgba(45, 212, 191, 0.7);
+      background: rgba(15, 23, 42, 0.9);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .status-pill span.dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.35);
+    }
+
+    .status-pill span.txt {
+      color: #e5e7eb;
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 12px;
+      font-size: 11px;
+    }
+
+    .hero-tag {
+      padding: 4px 9px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      background: rgba(15, 23, 42, 0.85);
+      color: var(--muted);
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 12px;
+      font-size: 11px;
+    }
+
+    .hero-stat {
+      padding: 10px 9px;
+      border-radius: 14px;
+      border: 1px solid rgba(148, 163, 184, 0.32);
+      background: rgba(15, 23, 42, 0.92);
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .hero-stat span.value {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    .hero-stat span.label {
+      font-size: 10px;
+      color: var(--muted);
+    }
+
+    .hero-footnote {
+      margin-top: 12px;
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .hero-footnote strong {
+      color: #e5e7eb;
+      font-weight: 500;
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    /* ====== SECTIONS ====== */
+
+    section {
+      margin-top: 56px;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+
+    .section-title {
+      font-size: 18px;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section-title span.bar {
+      width: 32px;
+      height: 2px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #4ade80, #22c55e, #38bdf8);
+    }
+
+    .section-subtitle {
+      font-size: 12px;
+      color: var(--muted);
+      max-width: 420px;
+    }
+
+    /* ====== ABOUT ====== */
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+      gap: 26px;
+    }
+
+    .about-text {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .about-text p + p {
+      margin-top: 10px;
+    }
+
+    .about-highlight {
+      padding: 12px 13px;
+      border-radius: 18px;
+      background: rgba(15, 23, 42, 0.92);
+      border: 1px solid rgba(148, 163, 184, 0.38);
+      font-size: 12px;
+      color: var(--muted);
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .about-highlight strong {
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    .about-highlight span.label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      color: #64748b;
+    }
+
+    .about-meta-grid {
+      margin-top: 10px;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      font-size: 11px;
+    }
+
+    .about-meta-item {
+      padding: 10px 11px;
+      border-radius: 14px;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      background: rgba(15, 23, 42, 0.95);
+    }
+
+    .about-meta-item span.key {
+      color: var(--muted);
+      display: block;
+      margin-bottom: 3px;
+    }
+
+    .about-meta-item span.val {
+      color: #e5e7eb;
+      font-weight: 500;
+    }
+
+    @media (max-width: 900px) {
+      .about-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    /* ====== SKILLS ====== */
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-size: 11px;
+    }
+
+    .pill {
+      padding: 5px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      background: rgba(15, 23, 42, 0.88);
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 10px;
+    }
+
+    .skills-card {
+      border-radius: 18px;
+      padding: 12px 12px 11px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      background: rgba(15, 23, 42, 0.95);
+    }
+
+    .skills-card-title {
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: #e5e7eb;
+    }
+
+    .skills-card span.caption {
+      font-size: 11px;
+      color: var(--muted);
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      font-size: 11px;
+    }
+
+    .skills-list span {
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.98);
+      border: 1px solid rgba(148, 163, 184, 0.38);
+    }
+
+    @media (max-width: 900px) {
+      .skills-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 620px) {
+      .skills-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    /* ====== EXPERIENCE ====== */
+
+    .experience-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+      gap: 18px;
+    }
+
+    .timeline {
+      border-radius: 18px;
+      padding: 12px 12px 4px;
+      background: rgba(15, 23, 42, 0.96);
+      border: 1px solid rgba(148, 163, 184, 0.4);
+    }
+
+    .timeline-item {
+      position: relative;
+      padding-left: 18px;
+      margin-bottom: 10px;
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: 6px;
+      top: 4px;
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.35);
+    }
+
+    .timeline-item:not(:last-child)::after {
+      content: "";
+      position: absolute;
+      left: 9px;
+      top: 12px;
+      bottom: -10px;
+      width: 1px;
+      background: linear-gradient(
+        to bottom,
+        rgba(148, 163, 184, 0.6),
+        transparent
+      );
+    }
+
+    .timeline-role {
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .timeline-meta {
+      font-size: 11px;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+
+    .timeline-points {
+      font-size: 11px;
+      color: var(--muted);
+      padding-left: 12px;
+    }
+
+    .timeline-points li + li {
+      margin-top: 3px;
+    }
+
+    .edu-card {
+      border-radius: 18px;
+      padding: 12px;
+      background: rgba(15, 23, 42, 0.96);
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      font-size: 12px;
+    }
+
+    .edu-title {
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .edu-meta {
+      font-size: 11px;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    .edu-line {
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .edu-line strong {
+      color: #e5e7eb;
+    }
+
+    @media (max-width: 900px) {
+      .experience-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    /* ====== PROJECTS ====== */
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .project-card {
+      position: relative;
+      border-radius: 20px;
+      padding: 12px 12px 11px;
+      background: radial-gradient(circle at top left, rgba(74, 222, 128, 0.04), transparent 60%),
+        radial-gradient(circle at bottom right, rgba(56, 189, 248, 0.07), transparent 60%),
+        rgba(15, 23, 42, 0.97);
+      border: 1px solid rgba(148, 163, 184, 0.42);
+      overflow: hidden;
+      transition: transform 150ms ease-out, box-shadow 150ms ease-out,
+        border-color 150ms ease-out;
+    }
+
+    .project-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(74, 222, 128, 0.9);
+      box-shadow: 0 20px 45px rgba(15, 23, 42, 0.9);
+    }
+
+    .project-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 8px;
+      margin-bottom: 6px;
+    }
+
+    .project-title {
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .project-tagline {
+      font-size: 11px;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    .project-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      font-size: 10px;
+      margin-bottom: 6px;
+    }
+
+    .project-meta span {
+      padding: 3px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      background: rgba(15, 23, 42, 0.97);
+    }
+
+    .project-body {
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .project-body p + p {
+      margin-top: 4px;
+    }
+
+    .project-footer {
+      margin-top: 8px;
+      font-size: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #64748b;
+    }
+
+    .project-footer a {
+      padding: 4px 7px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.45);
+    }
+
+    .project-footer a:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    @media (max-width: 900px) {
+      .projects-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    /* ====== SERVICES ====== */
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .service-card {
+      border-radius: 18px;
+      padding: 11px 12px;
+      background: rgba(15, 23, 42, 0.97);
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      font-size: 11px;
+    }
+
+    .service-title {
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .service-card p {
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    .service-pill {
+      display: inline-block;
+      padding: 3px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      background: rgba(15, 23, 42, 0.9);
+      font-size: 10px;
+      color: #9ca3af;
+    }
+
+    @media (max-width: 900px) {
+      .services-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 620px) {
+      .services-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    /* ====== CONTACT ====== */
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+      gap: 20px;
+    }
+
+    .contact-card,
+    .contact-side {
+      border-radius: 20px;
+      padding: 13px 13px 12px;
+      background: rgba(15, 23, 42, 0.97);
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      font-size: 12px;
+    }
+
+    .contact-card p {
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 4px;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .field label {
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .field input,
+    .field textarea {
+      border-radius: 12px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      background: rgba(15, 23, 42, 0.96);
+      padding: 7px 9px;
+      font-size: 12px;
+      color: var(--text);
+      font-family: inherit;
+      outline: none;
+      resize: vertical;
+      min-height: 34px;
+    }
+
+    .field input:focus,
+    .field textarea:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 1px rgba(74, 222, 128, 0.5);
+    }
+
+    .contact-side ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .contact-side li strong {
+      color: #e5e7eb;
+      font-weight: 500;
+    }
+
+    .contact-note {
+      margin-top: 8px;
+      font-size: 11px;
+      color: #64748b;
+    }
+
+    @media (max-width: 900px) {
+      .contact-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    /* ====== FOOTER & FLOATING BTN ====== */
+
+    footer {
+      margin-top: 40px;
+      font-size: 10px;
+      color: #64748b;
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      text-decoration: underline;
+      text-decoration-style: dotted;
+      text-underline-offset: 2px;
+    }
+
+    .back-to-top {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.96);
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      color: var(--muted);
+      cursor: pointer;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(10px);
+      transition: opacity var(--transition-fast),
+        transform var(--transition-fast),
+        border-color var(--transition-fast),
+        color var(--transition-fast),
+        box-shadow var(--transition-fast);
+      z-index: 40;
+    }
+
+    .back-to-top.visible {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    .back-to-top:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.9);
+    }
+
+    /* ====== TOAST ====== */
+
+    .toast {
+      position: fixed;
+      left: 50%;
+      bottom: 70px;
+      transform: translateX(-50%) translateY(20px);
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.98);
+      border: 1px solid rgba(74, 222, 128, 0.7);
+      font-size: 11px;
+      color: var(--text);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 160ms ease-out, transform 160ms ease-out;
+      z-index: 50;
+    }
+
+    .toast.visible {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .toast span.icon {
+      margin-right: 6px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="nav">
+      <div class="logo">
+        <div class="logo-badge">DB</div>
+        <div class="logo-text">
+          <span class="logo-name">Dwishanth Bolla</span>
+          <span class="logo-tagline">AI · Systems · Simulation</span>
+        </div>
+      </div>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#skills">Stack</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#services">Services</a>
+        <a href="#contact" class="nav-primary">
+          <span class="icon">✉️</span>
+          <span>Contact</span>
+        </a>
+        <div class="nav-social">
+          <a
+            href="https://github.com/Dwishanth"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="GitHub"
+          >
+            ⓖ
+          </a>
+          <a
+            href="https://www.linkedin.com/in/dwishanth-bolla-235440202"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="LinkedIn"
+          >
+            in
+          </a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <div class="shell">
+    <main>
+      <!-- HERO -->
+      <section id="home" class="hero">
+        <div class="hero-left">
+          <div class="hero-chip-row">
+            <div class="chip">
+              <span class="dot"></span>
+              <span>Currently building <strong>AI & dev tools</strong></span>
+            </div>
+            <div class="chip">
+              <span>Ex-CEO · Ignite Club · SVU</span>
+            </div>
+          </div>
+
+          <h1 class="hero-title">
+            I turn <span class="highlight">ideas</span> into
+            <span class="highlight">AI systems & simulations</span>.
+          </h1>
+
+          <p class="hero-subtitle">
+            I’m <strong>Dwishanth Bolla</strong>, an engineer obsessed with
+            building practical AI — from
+            <strong>weather prediction for ISRO</strong> to
+            <strong>lane detection, speech models, routers with custom firmware</strong>
+            and <strong>rocket landing simulators</strong>.
+          </p>
+
+          <div class="hero-cta-row">
+            <button class="btn btn-primary" onclick="scrollToSection('projects')">
+              <span class="icon">🚀</span>
+              <span>See my projects</span>
+            </button>
+            <button class="btn btn-ghost" onclick="scrollToSection('contact')">
+              <span class="icon">🤝</span>
+              <span>Let’s work together</span>
+            </button>
+          </div>
+
+          <div class="hero-meta-row">
+            <span><span class="label">Location:</span> Tirupati / India</span>
+            <span><span class="label">Focus:</span> AI, tooling, simulations, systems</span>
+            <span><span class="label">Open to:</span> freelance projects & product teams</span>
+          </div>
+        </div>
+
+        <div class="hero-right">
+          <div class="hero-card">
+            <div class="hero-card-inner">
+              <div class="hero-card-header">
+                <div class="user-meta">
+                  <div class="avatar">DB</div>
+                  <div class="user-meta-text">
+                    <span class="name">Dwishanth Bolla</span>
+                    <span class="role">AI & Systems Engineer</span>
+                  </div>
+                </div>
+                <div class="status-pill">
+                  <span class="dot"></span>
+                  <span class="txt">Taking new work</span>
+                </div>
+              </div>
+
+              <div class="hero-tags">
+                <span class="hero-tag">Local-first AI</span>
+                <span class="hero-tag">Simulation systems</span>
+                <span class="hero-tag">Backend & tooling</span>
+                <span class="hero-tag">Network & infra tweaks</span>
+              </div>
+
+              <div class="hero-stats">
+                <div class="hero-stat">
+                  <span class="value">15+</span>
+                  <span class="label">Projects built end-to-end</span>
+                </div>
+                <div class="hero-stat">
+                  <span class="value">4+</span>
+                  <span class="label">Years writing code</span>
+                </div>
+                <div class="hero-stat">
+                  <span class="value">3</span>
+                  <span class="label">Tech stacks I deploy on daily</span>
+                </div>
+              </div>
+
+              <p class="hero-footnote">
+                <strong>Proof-of-work > buzzwords.</strong> I like shipping
+                things that people can poke, break and use — especially on
+                constrained hardware or messy real-world data.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ABOUT -->
+      <section id="about">
+        <div class="section-header">
+          <div class="section-title">
+            <span class="bar"></span>
+            <span>About me</span>
+          </div>
+          <p class="section-subtitle">
+            A quick snapshot of who I am, what I’ve done so far, and how I
+            think about engineering work.
+          </p>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-text">
+            <p>
+              I’m an engineer who enjoys sitting at the intersection of
+              <strong>AI, systems and tooling</strong>. I’ve worked with
+              real-time weather data during my internship at
+              <strong>ISRO SDSC SHAR</strong>, built an
+              <strong>LSTM-based prediction model</strong>, and shipped
+              projects like lane detectors, speech recognition, router
+              firmware tweaks and rocket landing simulations.
+            </p>
+            <p>
+              I care about <strong>clarity, reproducibility and control</strong>.
+              That’s why I experiment a lot with
+              <strong>local AI models, Docker, Linux on mobile</strong> and
+              custom parsers — so that I can run serious systems on modest
+              hardware without depending on magic.
+            </p>
+            <p>
+              Outside of code, I’ve led people as the
+              <strong>former CEO of the Ignite Club</strong> at my university,
+              mentored peers, and helped others ship their own projects. I’m
+              currently leveling up towards <strong>top-tier product teams</strong>
+              and doing <strong>freelance build work</strong> for students and
+              early-stage ideas.
+            </p>
+          </div>
+
+          <div>
+            <div class="about-highlight">
+              <span class="label">Snapshot</span>
+              <span><strong>AI & Systems Engineer</strong> with a taste for low-level control, real-time data, and building useful tools for real people.</span>
+            </div>
+
+            <div class="about-meta-grid">
+              <div class="about-meta-item">
+                <span class="key">Degree</span>
+                <span class="val">
+                  B.Tech, Computer Science Engineering – Sri Venkateswara University, Tirupati
+                </span>
+              </div>
+              <div class="about-meta-item">
+                <span class="key">Current learning</span>
+                <span class="val">Docker · digital marketing · stronger AI fundamentals</span>
+              </div>
+              <div class="about-meta-item">
+                <span class="key">Comfort zone</span>
+                <span class="val">Python, Linux, containers, network tweaks</span>
+              </div>
+              <div class="about-meta-item">
+                <span class="key">Looking for</span>
+                <span class="val">Interesting AI / dev-tool / infra-heavy work</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SKILLS -->
+      <section id="skills">
+        <div class="section-header">
+          <div class="section-title">
+            <span class="bar"></span>
+            <span>Skills & stack</span>
+          </div>
+          <p class="section-subtitle">
+            Tools I actually use and enjoy, not just names on a list.
+          </p>
+        </div>
+
+        <div class="pill-row">
+          <span class="pill">AI/ML & deep learning</span>
+          <span class="pill">Simulation & physics-heavy logic</span>
+          <span class="pill">Infrastructure on limited hardware</span>
+          <span class="pill">Data structures & algorithms</span>
+          <span class="pill">Dev tooling & automation</span>
+        </div>
+
+        <div class="skills-grid" style="margin-top: 14px;">
+          <div class="skills-card">
+            <div class="skills-card-title">Languages</div>
+            <span class="caption">The ones I’m comfortable shipping with</span>
+            <div class="skills-list">
+              <span>Python</span>
+              <span>Java</span>
+              <span>C</span>
+              <span>Bash / Zsh scripting</span>
+            </div>
+          </div>
+
+          <div class="skills-card">
+            <div class="skills-card-title">AI & Data</div>
+            <span class="caption">From models to experiments</span>
+            <div class="skills-list">
+              <span>TensorFlow</span>
+              <span>LSTM models</span>
+              <span>Automatic Speech Recognition</span>
+              <span>Classical ML</span>
+              <span>Matplotlib & data viz</span>
+            </div>
+          </div>
+
+          <div class="skills-card">
+            <div class="skills-card-title">DevOps & Infra</div>
+            <span class="caption">Lightweight but powerful</span>
+            <div class="skills-list">
+              <span>Docker</span>
+              <span>Linux (Ubuntu, Termux, proot)</span>
+              <span>SSH & remote workflows</span>
+              <span>Custom networking (Pi-hole, firmware tweaks)</span>
+            </div>
+          </div>
+
+          <div class="skills-card">
+            <div class="skills-card-title">Frameworks & Tools</div>
+            <span class="caption">What I open often</span>
+            <div class="skills-list">
+              <span>Git & GitHub</span>
+              <span>FlutterFlow</span>
+              <span>OpenFOAM (simulation)</span>
+              <span>VS Code</span>
+            </div>
+          </div>
+
+          <div class="skills-card">
+            <div class="skills-card-title">Problem-Solving</div>
+            <span class="caption">How I approach work</span>
+            <div class="skills-list">
+              <span>DSA fundamentals</span>
+              <span>API & parser design</span>
+              <span>Debugging & profiling</span>
+              <span>Working with messy real-world data</span>
+            </div>
+          </div>
+
+          <div class="skills-card">
+            <div class="skills-card-title">Soft skills</div>
+            <span class="caption">Humans matter too</span>
+            <div class="skills-list">
+              <span>Technical leadership</span>
+              <span>Mentoring peers</span>
+              <span>Client communication</span>
+              <span>Community building (Ignite Club)</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- EXPERIENCE -->
+      <section id="experience">
+        <div class="section-header">
+          <div class="section-title">
+            <span class="bar"></span>
+            <span>Experience & education</span>
+          </div>
+          <p class="section-subtitle">
+            Where I’ve applied my skills so far — in the real world and in
+            communities.
+          </p>
+        </div>
+
+        <div class="experience-grid">
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-role">AI & Data Intern · ISRO SDSC SHAR</div>
+              <div class="timeline-meta">
+                Feb 2024 – May 2024 · Real-time weather prediction & analysis
+              </div>
+              <ul class="timeline-points">
+                <li>
+                  Worked with real-time atmospheric data to support
+                  <strong>weather prediction</strong> for launch operations.
+                </li>
+                <li>
+                  Built and evaluated an <strong>LSTM-based model</strong> to
+                  forecast weather trends and identify patterns.
+                </li>
+                <li>
+                  Focused on <strong>data cleaning, visualization and reliability</strong>
+                  so that engineers could trust the insights.
+                </li>
+              </ul>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-role">Elite Hiring Trainee · Wipro</div>
+              <div class="timeline-meta">
+                2024 – Present · Intensive software engineering training
+              </div>
+              <ul class="timeline-points">
+                <li>
+                  Selected for Wipro’s <strong>Elite Exclusive Hiring 2024</strong>
+                  and completed multi-month structured training.
+                </li>
+                <li>
+                  Strengthened <strong>core CS fundamentals</strong>, clean
+                  coding practices and team-based problem solving.
+                </li>
+              </ul>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-role">CEO · Ignite Club (SVU)</div>
+              <div class="timeline-meta">
+                Sri Venkateswara University · Leadership & community
+              </div>
+              <ul class="timeline-points">
+                <li>
+                  Led a tech-focused student community, organizing
+                  <strong>events, talks and project sprints</strong>.
+                </li>
+                <li>
+                  Mentored juniors on <strong>DSA, projects and career clarity</strong>.
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="edu-card">
+            <div class="edu-title">B.Tech in Computer Science Engineering</div>
+            <div class="edu-meta">
+              Sri Venkateswara University, Tirupati · CGPA: 7.61
+            </div>
+            <p class="edu-line">
+              <strong>Intermediate:</strong> Sri Chaitanya JR College, Hyderabad – 93%
+            </p>
+            <p class="edu-line">
+              <strong>SSC:</strong> Narayana High School, Vijayawada – CGPA: 10
+            </p>
+            <p class="edu-line" style="margin-top: 6px;">
+              Ranked in the <strong>top 10% in EAMCET</strong>, securing a place
+              in CSE and building on that with hands-on projects and club work.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROJECTS -->
+      <section id="projects">
+        <div class="section-header">
+          <div class="section-title">
+            <span class="bar"></span>
+            <span>Selected projects</span>
+          </div>
+          <p class="section-subtitle">
+            A mix of AI, systems, simulations and practical tooling. Every
+            project taught me something new about constraints and trade-offs.
+          </p>
+        </div>
+
+        <div class="projects-grid">
+          <article class="project-card">
+            <div class="project-header">
+              <h3 class="project-title">LSTM Weather Prediction Engine</h3>
+              <span class="project-tagline">ISRO SDSC SHAR · AI & time series</span>
+            </div>
+            <div class="project-meta">
+              <span>Python</span>
+              <span>TensorFlow</span>
+              <span>LSTM</span>
+              <span>Matplotlib</span>
+            </div>
+            <div class="project-body">
+              <p>
+                Built an <strong>LSTM-based model</strong> to forecast weather
+                metrics from real-time launch-site data, focusing on stability
+                and interpretability.
+              </p>
+              <p>
+                Implemented strong preprocessing, visualization and validation
+                to help engineers see <strong>how and why</strong> the model
+                behaves a certain way.
+              </p>
+            </div>
+            <div class="project-footer">
+              <span>Focus: reliable signals over fancy metrics.</span>
+              <a
+                href="https://github.com/Dwishanth"
+                target="_blank"
+                rel="noreferrer"
+              >Code on GitHub</a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-header">
+              <h3 class="project-title">Classical Lane Detector</h3>
+              <span class="project-tagline">Computer vision without heavy models</span>
+            </div>
+            <div class="project-meta">
+              <span>Python</span>
+              <span>OpenCV</span>
+              <span>Matplotlib</span>
+            </div>
+            <div class="project-body">
+              <p>
+                Implemented a <strong>lane detection pipeline</strong> using
+                classical CV techniques — edge detection, region-of-interest
+                masking and Hough transforms.
+              </p>
+              <p>
+                Visualized every step clearly with Matplotlib so the whole
+                pipeline is <strong>transparent and debuggable</strong>.
+              </p>
+            </div>
+            <div class="project-footer">
+              <span>Focus: clarity in every transformation step.</span>
+              <a
+                href="https://github.com/Dwishanth"
+                target="_blank"
+                rel="noreferrer"
+              >Repo collection</a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-header">
+              <h3 class="project-title">Automatic Speech Recognition Prototype</h3>
+              <span class="project-tagline">From raw audio to text</span>
+            </div>
+            <div class="project-meta">
+              <span>Python</span>
+              <span>Deep learning</span>
+              <span>Signal processing</span>
+            </div>
+            <div class="project-body">
+              <p>
+                Built an <strong>ASR pipeline</strong> exploring feature
+                extraction, acoustic modeling and decoding to convert speech
+                into text.
+              </p>
+              <p>
+                Focused on understanding <strong>low-level audio features</strong>
+                and latency trade-offs for real-time usage.
+              </p>
+            </div>
+            <div class="project-footer">
+              <span>Focus: balancing accuracy & responsiveness.</span>
+              <a
+                href="https://github.com/Dwishanth"
+                target="_blank"
+                rel="noreferrer"
+              >Related work</a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-header">
+              <h3 class="project-title">Rocket Landing Simulator</h3>
+              <span class="project-tagline">Physics-based control experimentation</span>
+            </div>
+            <div class="project-meta">
+              <span>Python</span>
+              <span>Simulation</span>
+              <span>Physics</span>
+            </div>
+            <div class="project-body">
+              <p>
+                Designed a <strong>rocket landing simulation</strong> with
+                realistic physics to experiment with control strategies and
+                trajectory behavior.
+              </p>
+              <p>
+                Let me explore stability, feedback loops and how
+                <strong>small changes in control logic</strong> affect outcomes.
+              </p>
+            </div>
+            <div class="project-footer">
+              <span>Focus: intuition for dynamics & control.</span>
+              <a
+                href="https://github.com/Dwishanth"
+                target="_blank"
+                rel="noreferrer"
+              >Simulation work</a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-header">
+              <h3 class="project-title">Custom Router Adblock Firmware</h3>
+              <span class="project-tagline">Network-level content control</span>
+            </div>
+            <div class="project-meta">
+              <span>Firmware tweaks</span>
+              <span>Networking</span>
+              <span>DNS rules</span>
+            </div>
+            <div class="project-body">
+              <p>
+                Modified firmware for a <strong>D-Link DIR-825</strong> router
+                to add smart adblocking capabilities while keeping the network
+                stable for non-blocked devices.
+              </p>
+              <p>
+                Focused on rulesets, DNS behavior and making sure the setup
+                could be <strong>debugged and reverted safely</strong>.
+              </p>
+            </div>
+            <div class="project-footer">
+              <span>Focus: control without breaking the network.</span>
+              <a
+                href="https://github.com/Dwishanth"
+                target="_blank"
+                rel="noreferrer"
+              >Network tweaks</a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-header">
+              <h3 class="project-title">Local AI Assistant & Call Unit</h3>
+              <span class="project-tagline">DeepSeek R1-based domestic chatbot</span>
+            </div>
+            <div class="project-meta">
+              <span>Python</span>
+              <span>Docker</span>
+              <span>LLM tooling</span>
+            </div>
+            <div class="project-body">
+              <p>
+                Setting up a <strong>local AI assistant</strong> based on a
+                native DeepSeek R1 model to handle customer queries, calls and
+                scheduling with human-like responses.
+              </p>
+              <p>
+                Designed with <strong>state tracking, empathetic responses and
+                “gunshot” concise answers</strong>, deployable on my own infra.
+              </p>
+            </div>
+            <div class="project-footer">
+              <span>Focus: local-first control & UX.</span>
+              <a
+                href="https://github.com/Dwishanth"
+                target="_blank"
+                rel="noreferrer"
+              >LLM experiments</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- SERVICES -->
+      <section id="services">
+        <div class="section-header">
+          <div class="section-title">
+            <span class="bar"></span>
+            <span>What I can help you with</span>
+          </div>
+          <p class="section-subtitle">
+            I take on a limited number of focused, hands-on projects — especially
+            where shipping matters more than buzzwords.
+          </p>
+        </div>
+
+        <div class="services-grid">
+          <div class="service-card">
+            <div class="service-title">Student project builds</div>
+            <p>
+              I help B.Tech students go from idea to <strong>working project</strong>:
+              AI models, simulations, networking tools and more — with clean,
+              understandable code.
+            </p>
+            <span class="service-pill">Perfect for final year & mini-projects</span>
+          </div>
+
+          <div class="service-card">
+            <div class="service-title">AI prototypes</div>
+            <p>
+              Need to test an AI idea quickly? I can build a
+              <strong>functioning prototype</strong> using practical tools
+              (TensorFlow / local LLMs) that you can iterate on.
+            </p>
+            <span class="service-pill">Time-boxed, realistic prototypes</span>
+          </div>
+
+          <div class="service-card">
+            <div class="service-title">Simulators & tools</div>
+            <p>
+              From <strong>physics-based simulators</strong> to small CLI tools
+              and dashboards, I enjoy building utilities that plug into your
+              workflow.
+            </p>
+            <span class="service-pill">Custom-built utilities</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact">
+        <div class="section-header">
+          <div class="section-title">
+            <span class="bar"></span>
+            <span>Contact</span>
+          </div>
+          <p class="section-subtitle">
+            Tell me what you’re trying to build or learn, and I’ll let you know
+            how I can help.
+          </p>
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-card">
+            <p>
+              Whether you’re a <strong>student</strong> needing a serious project,
+              a <strong>team</strong> hiring for AI/systems work, or just someone
+              who wants to brainstorm — drop a message here.
+            </p>
+
+            <form class="contact-form" id="contact-form">
+              <div class="field">
+                <label for="name">Name</label>
+                <input id="name" name="name" type="text" required />
+              </div>
+              <div class="field">
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" required />
+              </div>
+              <div class="field">
+                <label for="type">What are you looking for?</label>
+                <input
+                  id="type"
+                  name="type"
+                  type="text"
+                  placeholder="e.g. AI project help, simulator, freelance work"
+                />
+              </div>
+              <div class="field">
+                <label for="message">Message</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows="4"
+                  required
+                ></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary" style="margin-top: 4px;">
+                <span class="icon">📩</span>
+                <span>Send message</span>
+              </button>
+            </form>
+          </div>
+
+          <aside class="contact-side">
+            <div><strong>Direct contact</strong></div>
+            <ul>
+              <li>
+                <strong>Email:</strong>
+                <a href="mailto:dwishanthbolla@gmail.com">
+                  dwishanthbolla@gmail.com
+                </a>
+              </li>
+              <li>
+                <strong>GitHub:</strong>
+                <a
+                  href="https://github.com/Dwishanth"
+                  target="_blank"
+                  rel="noreferrer"
+                >github.com/Dwishanth</a>
+              </li>
+              <li>
+                <strong>LinkedIn:</strong>
+                <a
+                  href="https://www.linkedin.com/in/dwishanth-bolla-235440202"
+                  target="_blank"
+                  rel="noreferrer"
+                >/in/dwishanth-bolla-235440202</a>
+              </li>
+            </ul>
+            <p class="contact-note">
+              I try to reply thoughtfully. If it’s a student project, include
+              your <strong>deadline</strong> and what’s already done so I don’t
+              waste your time.
+            </p>
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <span>© <span id="year"></span> · Built by Dwishanth Bolla.</span>
+      <div class="footer-links">
+        <a href="#home">Back to top</a>
+        <a
+          href="https://github.com/Dwishanth"
+          target="_blank"
+          rel="noreferrer"
+        >GitHub</a>
+        <a
+          href="https://www.linkedin.com/in/dwishanth-bolla-235440202"
+          target="_blank"
+          rel="noreferrer"
+        >LinkedIn</a>
+      </div>
+    </footer>
+  </div>
+
+  <button class="back-to-top" id="back-to-top" aria-label="Back to top">
+    ↑
+  </button>
+
+  <div class="toast" id="toast">
+    <span class="icon">✅</span>
+    <span>Thanks! This message is saved locally — plug in your backend to receive it.</span>
+  </div>
+
+  <script>
+    // Smooth scroll helper
+    function scrollToSection(id) {
+      const el = document.getElementById(id);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }
+
+    // Back-to-top visibility
+    const backToTop = document.getElementById("back-to-top");
+    window.addEventListener("scroll", () => {
+      const show = window.scrollY > 260;
+      if (show) {
+        backToTop.classList.add("visible");
+      } else {
+        backToTop.classList.remove("visible");
+      }
+    });
+
+    backToTop.addEventListener("click", () => scrollToSection("home"));
+
+    // Footer year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Contact form "fake" submit + toast
+    const contactForm = document.getElementById("contact-form");
+    const toast = document.getElementById("toast");
+    let toastTimeout = null;
+
+    function showToast() {
+      if (!toast) return;
+      toast.classList.add("visible");
+      if (toastTimeout) clearTimeout(toastTimeout);
+      toastTimeout = setTimeout(() => {
+        toast.classList.remove("visible");
+      }, 2600);
+    }
+
+    if (contactForm) {
+      contactForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        contactForm.reset();
+        showToast();
+      });
+    }
+  </script>
+</body>
+</html>
